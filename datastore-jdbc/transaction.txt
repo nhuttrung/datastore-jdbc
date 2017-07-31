@@ -1,0 +1,4 @@
+
+See https://cloud.google.com/appengine/docs/standard/java/datastore/transactions.
+Unlike with most databases, queries and gets inside a Cloud Datastore transaction do *not* 
+see the results of previous writes inside that transaction
