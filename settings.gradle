@@ -1,0 +1,3 @@
+include ':datastore-jdbc'
+// include ':datastore-jdbc', ':gs-accessing-data-jpa'
+// include ':datastore-jdbc', ':gs-accessing-data-jpa', ':spring-data-jpa-examples'
