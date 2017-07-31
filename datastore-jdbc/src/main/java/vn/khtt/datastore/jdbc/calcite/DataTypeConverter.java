@@ -52,9 +52,9 @@ public class DataTypeConverter {
     
     /**
      * Convert object read from Datastore to JDBC
-     * @param obj
-     * @param fieldType
-     * @return
+     * @param value The value to be converted
+     * @param fieldType Property type
+     * @return The converted value
      */
     public static Object convertToJdbc(Object value, DatastoreFieldType fieldType){
         if (value == null) {
@@ -71,6 +71,13 @@ public class DataTypeConverter {
         return converter.loadValue(value);
     }
 
+    /**
+     * Convert Java object to suitable for storing in datastore Entity
+     * @param value The value to be converted
+     * @param datastoreTable Table information
+     * @param columnName Column name
+     * @return The converted value which should be stored in the datastore Entity
+     */
     public static Object convertToDatastore(Object value, DatastoreTable datastoreTable, String columnName){
         if (value == null) {
             return value;

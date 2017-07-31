@@ -7,16 +7,16 @@ package vn.khtt.datastore.jdbc.calcite.converter;
  */
 public interface Converter <P, D> {
     /**
-     * Convert Datastore type to Pojo type
-     * @param value
-     * @return
+     * Convert datastore Entity's property value to Pojo's property
+     * @param value Property value to be converted.
+     * @return The converted value which should be stored in the Pojo
      */
     P loadValue(Object value);
     
     /**
-     * Convert Pojo type to Datastore type
-     * @param value
-     * @return
+     * Convert Pojo's property value to datastore Entity's property
+     * @param value Property value to be converted.
+     * @return The converted value which should be stored in the datastore Entity
      */
     D saveValue(Object value);
 }
