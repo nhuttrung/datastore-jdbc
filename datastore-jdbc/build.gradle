@@ -41,8 +41,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'com.google.appengine:appengine-testing:' + appengineVersion
     testCompile 'com.google.appengine:appengine-api-stubs:' + appengineVersion
-//    testCompile 'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
-//    testCompile 'org.springframework.boot:spring-boot-starter-data-jpa:' + springBootVersion
+    testCompile 'org.springframework.boot:spring-boot-starter-test:' + springBootVersion
+    testCompile 'org.springframework.boot:spring-boot-starter-data-jpa:' + springBootVersion
 }
 
 test {
