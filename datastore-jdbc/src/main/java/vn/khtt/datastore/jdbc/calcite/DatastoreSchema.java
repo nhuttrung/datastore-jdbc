@@ -30,7 +30,12 @@ public class DatastoreSchema extends AbstractSchema {
     }
     
     public void addTable(DatastoreTable table){
-        ofy().save().entity(table);
+        ofy().save().entity(table).now();
+        tableMap = null;
+    }
+    public void deleteTable(DatastoreTable table){
+        ofy().delete().entity(table).now();
+        tableMap = null;
     }
     public DatastoreTable getDatastoreTable(String name){
         Table table = getTableMap().get(name);
