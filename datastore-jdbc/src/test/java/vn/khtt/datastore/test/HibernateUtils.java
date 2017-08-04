@@ -17,15 +17,15 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
 public class HibernateUtils {
-    public static void autoCreateSchema(DataSource dataSource, Package... scanPackages){
-        String[] packages = new String[scanPackages.length];
-        for (int i=0; i<scanPackages.length; i++){
-            packages[i] = scanPackages[i].getName();
+    public static void autoCreateSchema(DataSource dataSource, Package... packagesToScan){
+        String[] packages = new String[packagesToScan.length];
+        for (int i=0; i<packagesToScan.length; i++){
+            packages[i] = packagesToScan[i].getName();
         }
         
         autoCreateSchema(dataSource, packages);
     }
-    public static void autoCreateSchema(DataSource dataSource, String... scanPackages){
+    public static void autoCreateSchema(DataSource dataSource, String... packagesToScan){
         StandardServiceRegistryBuilder registryBuilder = new StandardServiceRegistryBuilder()
             .applySetting(AvailableSettings.DATASOURCE, dataSource)
             .applySetting(AvailableSettings.DIALECT, vn.khtt.datastore.jdbc.Dialect.class)
@@ -36,7 +36,7 @@ public class HibernateUtils {
         
         // Scan for Entity classes
         PathMatchingResourcePatternResolver resourceLoader = new PathMatchingResourcePatternResolver();
-        new LocalSessionFactoryBuilder(null, resourceLoader, metadataSources).scanPackages(scanPackages);
+        new LocalSessionFactoryBuilder(dataSource, resourceLoader, metadataSources).scanPackages(packagesToScan);
         
         Metadata metadata = metadataSources.getMetadataBuilder().build();
         Map<String, Object> properties = new HashMap<String, Object>();
