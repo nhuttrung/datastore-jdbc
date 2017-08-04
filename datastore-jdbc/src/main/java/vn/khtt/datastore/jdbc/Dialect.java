@@ -5,6 +5,8 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 
 import java.io.Serializable;
 
+import java.sql.Types;
+
 import java.util.Iterator;
 import java.util.Properties;
 
@@ -50,6 +52,8 @@ public class Dialect extends org.hibernate.dialect.Dialect {
     }
     
     public Dialect() {
+        registerColumnType( Types.VARBINARY, "blob" );
+        registerColumnType( Types.LONGVARBINARY, "blob" );
     }
 
     /**

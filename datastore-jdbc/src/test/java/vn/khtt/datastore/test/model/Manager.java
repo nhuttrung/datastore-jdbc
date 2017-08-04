@@ -8,11 +8,13 @@ import javax.persistence.Id;
 public class Manager {
     private @Id @GeneratedValue Long id;
     private String fullName;
+    private String[] roles;
 
     public Manager() {
     }
-    public Manager(String fullName) {
+    public Manager(String fullName, String[] roles) {
         this.fullName = fullName;
+        this.roles = roles;
     }
 
     public Long getId() {
@@ -25,5 +27,9 @@ public class Manager {
 
     public String getFullName() {
         return fullName;
+    }
+
+    public String[] getRoles() {
+        return roles;
     }
 }
