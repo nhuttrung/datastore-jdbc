@@ -30,7 +30,7 @@ public class CaseTransformer {
     public String transformSql(String sql) throws SQLException {
         StringBuilder buffer = new StringBuilder();
         
-        ExpressionDeParser expressionDeParser = new ExpressionDeParser(){
+        final ExpressionDeParser expressionDeParser = new ExpressionDeParser(){
             public void visit(Column tableColumn){
                 super.visit(tableColumn);
                 String columnName = tableColumn.getColumnName();
