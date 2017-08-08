@@ -48,9 +48,9 @@ public class DatastoreConnection implements Connection {
     protected CaseTransformer caseTransformer = new CaseTransformer.UpperCaseTransformer();
     
     public DatastoreConnection(Properties properties) {
-    }
-    public DatastoreConnection(Connection calciteConnection, Properties properties) {
-        this.calciteConnection = calciteConnection;
+        if (properties == null){
+            properties = new Properties();
+        }
         this.properties = properties;
     }
 
@@ -352,10 +352,10 @@ public class DatastoreConnection implements Connection {
 
     @Override
     public Clob createClob() throws SQLException {
-        notImplemented();
+//        notImplemented();
 
         // TODO Implement this method
-        return null;
+        return this.calciteConnection.createClob();
     }
 
     @Override

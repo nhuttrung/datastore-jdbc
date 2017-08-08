@@ -96,4 +96,8 @@ public class Dialect extends org.hibernate.dialect.Dialect {
             }
         };
     }
+
+    public boolean hasAlterTable() {
+        return false;
+    }
 }

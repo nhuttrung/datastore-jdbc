@@ -49,8 +49,8 @@ public enum DatastoreFieldType {
     NUMBER(BigDecimal.class, "number"),
     NUMERIC(BigDecimal.class, "NUMERIC"),
 
-    BLOB(BigDecimal.class, "BLOB"),
-    LONGTEXT(BigDecimal.class, "LONGTEXT"),
+    BLOB(byte[].class, "BLOB"),
+//TODO    LONGTEXT(String.class, "LONGTEXT"),
     ;
 
     private static final Map<String, DatastoreFieldType> MAP = new HashMap<String, DatastoreFieldType>();

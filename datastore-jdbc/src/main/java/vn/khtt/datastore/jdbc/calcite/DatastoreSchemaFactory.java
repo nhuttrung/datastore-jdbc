@@ -10,7 +10,7 @@ import org.apache.calcite.schema.SchemaPlus;
 
 public class DatastoreSchemaFactory implements SchemaFactory {
     static{
-        registerEntities();
+//        registerEntities();
     }
     private static synchronized void registerEntities() {
         ObjectifyService.register(DatastoreTable.class);
@@ -22,6 +22,7 @@ public class DatastoreSchemaFactory implements SchemaFactory {
     public static final DatastoreSchemaFactory INSTANCE = new DatastoreSchemaFactory();
 
     private DatastoreSchemaFactory() {
+        registerEntities();
     }
 
     @Override

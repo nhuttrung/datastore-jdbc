@@ -167,7 +167,7 @@ public class DatastorePreparedStatement extends DatastoreStatement implements Pr
 
     @Override
     public void setBytes(int parameterIndex, byte[] x) throws SQLException {
-        this.notImplemented();
+//        this.notImplemented();
         params.put(parameterIndex, x);
         if (calcitePreparedStatement != null){
             calcitePreparedStatement.setBytes(parameterIndex, x);

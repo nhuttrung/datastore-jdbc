@@ -81,7 +81,7 @@ public class CaseTransformer {
         try {
             statement = CCJSqlParserUtil.parse(sql);
         } catch (JSQLParserException e) {
-            throw new SQLException(e);
+            throw new SQLException("Error while parsing sql: " + sql, e);
         }
         statement.accept(statementDeParser);
         

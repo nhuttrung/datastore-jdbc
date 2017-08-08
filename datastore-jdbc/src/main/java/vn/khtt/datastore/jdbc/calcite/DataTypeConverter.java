@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import vn.khtt.datastore.jdbc.calcite.converter.BigDecimalLongConverter;
+import vn.khtt.datastore.jdbc.calcite.converter.BlobConverter;
 import vn.khtt.datastore.jdbc.calcite.converter.BooleanConverter;
 import vn.khtt.datastore.jdbc.calcite.converter.ByteConverter;
 import vn.khtt.datastore.jdbc.calcite.converter.Converter;
@@ -48,6 +49,8 @@ public class DataTypeConverter {
         converters.put(DatastoreFieldType.TIMESTAMP, new TimestampConverter());
         converters.put(DatastoreFieldType.DATETIME, new TimestampConverter());
         converters.put(DatastoreFieldType.DATE, new DateConverter());
+
+        converters.put(DatastoreFieldType.BLOB, new BlobConverter());
     }
     
     /**
